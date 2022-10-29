@@ -125,13 +125,14 @@ public class GameManager : MonoBehaviour
         CancelInvoke("InvokeUpdate");
         gameOver = true;
         finalScoreText.text = "Score:" + score.ToString();
-        finalDistanceText.text = "Distance:" + distance.ToString();
+        finalDistanceText.text = "Distance:" + ((int)distance).ToString();
         gamePanel.SetActive(false);
         gameoverPanel.SetActive(true);
     }
 
     public void Retry()
     {
+        Destroy(gameObject);
         Instance = null;
         SceneManager.LoadScene(0);
     }
